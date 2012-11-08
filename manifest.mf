@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+OpenIDE-Module: com.zero_separation.plugins.imagepainter
+OpenIDE-Module-Implementation-Version: 0
+OpenIDE-Module-Layer: com/zero_separation/plugins/imagepainter/layer.xml
+OpenIDE-Module-Localizing-Bundle: com/zero_separation/plugins/imagepainter/Bundle.properties
+
