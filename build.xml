@@ -5,4 +5,11 @@
 <project name="com.zero_separation.plugins.imagepainter" default="netbeans" basedir=".">
     <description>Builds, tests, and runs the project com.zero_separation.plugins.imagepainter.</description>
     <import file="nbproject/build-impl.xml"/>
+    <target name="init" depends="basic-init,files-init,build-init,-javac-init,-build-subproject"/>
+    <target name="-build-subproject">
+        <ant dir="./ImagePainter" inheritall="false" target="jar"/>
+        <copy file="./ImagePainter/dist/ImagePainter.jar" todir="release/libs"/>
+        <copy file="./ImagePainter/dist/ImagePainter-javadoc.jar" todir="release/libs"/>
+        <copy file="./ImagePainter/dist/ImagePainter-sources.jar" todir="release/libs"/>
+    </target>
 </project>
