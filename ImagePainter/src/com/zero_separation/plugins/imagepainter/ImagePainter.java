@@ -204,6 +204,30 @@ public class ImagePainter {
         this.imageRaster = imageRaster;
         this.image = null;
     }
+    
+    /**
+     * Constructs a new ImagePainter that will modify the supplied Image. An
+     * ImageRaster is created to wrap the Image automatically.
+     * 
+     * @param image The image to wrap with an ImageRaster then paint into
+     */
+    public ImagePainter(Image image) {
+        this.imageRaster = ImageRaster.create(image);
+        this.image = image;
+    }
+
+    /**
+     * Constructs a new ImagePainter that will modify the supplied ImageRaster. It
+     * also stores the Image passed in and allows it to be queried using getImage,
+     * for people who later want to be able to associate an Image with this 
+     * ImagePainter.
+     * 
+     * @param imageRaster The image raster to paint into
+     */
+    public ImagePainter(ImageRaster imageRaster, Image image) {
+        this.imageRaster = imageRaster;
+        this.image = image;
+    }
 
     /**
      * Creates a new Image in the specified format with the specified width and height
@@ -221,7 +245,9 @@ public class ImagePainter {
     }
 
     /**
-     * Returns the image that this ImagePainter is painting into.
+     * Returns the image that this ImagePainter is painting into. Note that if this ImagePainter
+     * was constructed using an ImageRaster rather than creating a new Image then the return
+     * value will be null.
      * 
      * @return The Image being painted into
      */
@@ -229,6 +255,15 @@ public class ImagePainter {
         return image;
     }
 
+    /**
+     * Returns the ImageRaster that this ImagePainter is painting into.
+     * 
+     * @return The ImageRaster being painted into
+     */
+    public ImageRaster getImageRaster() {
+        return imageRaster;
+    }
+    
     /**
      * Wipes the Image so that every pixel contains the supplied color.
      * 
