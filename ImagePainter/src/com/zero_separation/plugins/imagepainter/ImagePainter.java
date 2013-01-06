@@ -517,6 +517,9 @@ public class ImagePainter {
      * @param mode The blend mode to use
      */
     public void paintPixel(int x, int y, ColorRGBA color, BlendMode mode) {
+        if (color.a <= 0)
+            return;
+        
         if (mode.needsOriginal(color.a)) {
             imageRaster.getPixel(x, y, paintWorking);
         }
@@ -540,11 +543,7 @@ public class ImagePainter {
                 || (y >= imageRaster.getHeight())) {
             return;
         }
-        if (mode.needsOriginal(color.a)) {
-            imageRaster.getPixel(x, y, paintWorking);
-        }
-        mode.apply(paintWorking, color.r, color.g, color.b, color.a);
-        imageRaster.setPixel(x, y, paintWorking);
+        paintPixel(x, y, color, mode);
     }
 
     /**
