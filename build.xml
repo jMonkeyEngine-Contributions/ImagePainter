@@ -9,7 +9,7 @@
     <target name="-build-subproject">
         <ant dir="./ImagePainter" inheritall="false" target="jar"/>
         <copy file="./ImagePainter/dist/ImagePainter.jar" todir="release/libs"/>
-        <copy file="./ImagePainter/dist/ImagePainter-javadoc.jar" todir="release/libs"/>
-        <copy file="./ImagePainter/dist/ImagePainter-sources.jar" todir="release/libs"/>
+        <copy file="./ImagePainter/dist/ImagePainter-javadoc.jar" todir="release/docs"/>
+        <copy file="./ImagePainter/dist/ImagePainter-sources.jar" todir="release/sources"/>
     </target>
 </project>

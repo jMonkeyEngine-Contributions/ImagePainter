@@ -14,10 +14,10 @@ and open the template in the editor.
     </volume>
     <volume>
         <type>src</type>
-        <resource>jar:nbinst://com.zero_separation.plugins.imagepainter/libs/ImagePainter-src.zip!/</resource>
+        <resource>jar:nbinst://com.zero_separation.plugins.imagepainter/sources/ImagePainter-sources.jar!/</resource>
     </volume>
     <volume>
         <type>javadoc</type>
-        <resource>jar:nbinst://com.zero_separation.plugins.imagepainter/libs/ImagePainter-javadoc.zip!/</resource>
+        <resource>jar:nbinst://com.zero_separation.plugins.imagepainter/docs/ImagePainter-javadoc.jar!/</resource>
     </volume>
 </library>
