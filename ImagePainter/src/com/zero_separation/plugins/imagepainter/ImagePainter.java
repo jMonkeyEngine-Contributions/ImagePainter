@@ -41,6 +41,7 @@ import com.jme3.texture.Image;
 import com.jme3.texture.Image.Format;
 import com.jme3.texture.image.DefaultImageRaster;
 import com.jme3.texture.image.ImageRaster;
+import com.jme3.util.BufferUtils;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
@@ -265,7 +266,7 @@ public class ImagePainter {
      * @param height The height of the Image to create
      */
     public ImagePainter(Format format, int width, int height) {
-        ByteBuffer buffer = ByteBuffer.allocateDirect(width * height * format.getBitsPerPixel() / 8);
+        ByteBuffer buffer = BufferUtils.createByteBuffer(width * height * format.getBitsPerPixel() / 8);
         this.image = new Image(format, width, height, buffer);
         this.imageRaster = ImageRaster.create(image, 0);
     }
